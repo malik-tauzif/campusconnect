@@ -12,7 +12,11 @@ app = FastAPI(
 # Allow the React frontend (a different address) to call this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    #allow_origins=["*"],
+    allow_origins=[
+        "https://campusconnect-delta-eight.vercel.app",  # live frontend (Vercel)
+        "http://localhost:5173",                          # local development
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
